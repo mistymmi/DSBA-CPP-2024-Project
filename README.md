@@ -40,11 +40,14 @@ analysis.
 ### 3. Visualization Tools:
 • Integrate visualization tools to allow users to visualize the clustering
 results directly within the console application.
-### 4. Parameter Tuning:
+### 4. Normalization function:
+• Include function to normalize data after reading to impprove accuracy of 
+algorithms especially with large datasets.
+### 5. Parameter Tuning:
 • Include functionality for automatic or manual tuning of clustering
 parameters such as the number of clusters to optimize clustering
 performance.
-### 5. Exportable Results:
+### 6. Exportable Results:
 • Allow users to export clustered data and visualizations in various formats
 (e.g., CSV, image files) for further analysis or presentation purposes.
 
