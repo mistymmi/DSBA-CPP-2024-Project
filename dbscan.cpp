@@ -1,11 +1,12 @@
 #include "dbscan.h"
 
 
-double silhouetteScore(const std::vector<Point>& points, const std::vector<int>& labels, int clusterCount) {
+double silhouetteScore(const std::vector<Point>& points, int clusterCount) {
     std::vector<double> silhouetteScores(points.size(), 0.0);
 
     for (size_t i = 0; i < points.size(); ++i) {
-        int currentCluster = labels[i];
+        int currentCluster = points[i].cluster;
+        if (currentCluster == -1) continue;
         double a = 0.0;
         double b = std::numeric_limits<double>::infinity();
 
@@ -17,7 +18,7 @@ double silhouetteScore(const std::vector<Point>& points, const std::vector<int>&
             if (i == j) continue;
 
             double dist = distance(points[i], points[j]);
-            int neighborCluster = labels[j];
+            int neighborCluster = points[j].cluster;
 
             if (currentCluster == neighborCluster) {
                 a += dist;
@@ -56,16 +57,18 @@ std::pair<double, int> autoTuneDBSCAN(std::vector<Point>& points) {
     double bestScore = -std::numeric_limits<double>::infinity();
 
     std::vector<double> epsValues = {0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0};
-    std::vector<int> minPtsValues = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    std::vector<int> minPtsValues = {3, 4, 5, 6, 7, 8, 9, 10};
 
     for (double eps : epsValues) {
         for (int minPts : minPtsValues) {
-            std::vector<int> labels(points.size(), -1);
-            dbscan(points, eps, minPts);
+            std::vector<Point> pointsCopy = points;
+            dbscan(pointsCopy, eps, minPts);
 
-            int clusterCount = *std::max_element(labels.begin(), labels.end()) + 1;
+            int clusterCount = std::max_element(pointsCopy.begin(), pointsCopy.end(), [](const Point& a, const Point& b) {
+                return a.cluster < b.cluster;
+            })->cluster + 1;
             if (clusterCount > 1) {
-                double score = silhouetteScore(points, labels, clusterCount);
+                double score = silhouetteScore(pointsCopy, clusterCount);
                 if (score > bestScore) {
                     bestScore = score;
                     bestEps = eps;
