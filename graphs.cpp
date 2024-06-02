@@ -32,7 +32,7 @@ void drawClusters(const std::vector<Point>& points) {
 
     // Загрузка шрифта
     sf::Font font;
-    if (!font.loadFromFile("/Users/nikitakalinin/Documents/Projects/Project_M/DSBA-CPP-2024-Project-main/Arial.ttf")) {
+    if (!font.loadFromFile("Arial.ttf")) {
         std::cerr << "Could not load font 'Arial.ttf'\n"; 
         return;
     }
