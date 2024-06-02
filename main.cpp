@@ -6,10 +6,9 @@
 #include "kmeans.h"
 
 int main() {
-    std::vector<Point> points = readCSV("filepath/filename.csv");
+    std::vector<Point> points = readCSV("filepath.csv");
 
-    // Apply k-means
-    int k = 3; // Number of clusters for k-means
+    int k = 3;
     kmeans(points, k);
     for (const auto& point : points) {
         std::cout << "x: " << point.x << ", y: " << point.y
@@ -18,10 +17,9 @@ int main() {
 
     drawClusters(points);
 
-    std::vector<Point> points1 = readCSV("filepath/name.csv");
-    double eps = 0.005;
-    int minPts = 1;
-    dbscan(points1, eps, minPts);
+    std::vector<Point> points1 = readCSV("filepath.csv");
+    auto [bestEps, bestMinPts] = autoTuneDBSCAN(points1);
+    dbscan(points1, bestEps, bestMinPts);
     for (const auto& point : points1) {
         std::cout << "x: " << point.x << ", y: " << point.y
                   << ", cluster: " << point.cluster << std::endl;
