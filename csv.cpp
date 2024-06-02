@@ -25,3 +25,23 @@ std::vector<Point> readCSV(const std::string& filename) {
     return points;
 }
 
+void normalizePoints(std::vector<Point>& points) {
+    double minX = std::numeric_limits<double>::max();
+    double maxX = std::numeric_limits<double>::min();
+    double minY = std::numeric_limits<double>::max();
+    double maxY = std::numeric_limits<double>::min();
+
+    for (const auto& point : points) {
+        if (point.x < minX) minX = point.x;
+        if (point.x > maxX) maxX = point.x;
+        if (point.y < minY) minY = point.y;
+        if (point.y > maxY) maxY = point.y;
+    }
+
+    for (auto& point : points) {
+        point.x = (point.x - minX) / (maxX - minX);
+        point.y = (point.y - minY) / (maxY - minY);
+    }
+}
+
+
