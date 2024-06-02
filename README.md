@@ -40,14 +40,11 @@ analysis.
 ### 3. Visualization Tools:
 • Integrate visualization tools to allow users to visualize the clustering
 results directly within the console application.
-### 4. Performance Optimization:
-• Implement optimization techniques to enhance the performance of
-clustering algorithms, especially for larger datasets.
-### 5. Parameter Tuning:
+### 4. Parameter Tuning:
 • Include functionality for automatic or manual tuning of clustering
 parameters such as the number of clusters to optimize clustering
 performance.
-### 6. Exportable Results:
+### 5. Exportable Results:
 • Allow users to export clustered data and visualizations in various formats
 (e.g., CSV, image files) for further analysis or presentation purposes.
 
