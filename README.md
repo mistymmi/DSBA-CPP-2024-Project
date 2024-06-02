@@ -2,21 +2,18 @@
 # Console Application for Clustering Data
 ## by Yakupova Maryam, Zhidkova Ekaterina, group 233-2
 ## Description:
-The aim of this project is to develop a versatile console application for clustering
-analysis. The application should be designed to be usable both as a standalone
-program and as a library for integration into other projects. Clustering algorithms
-will primarily be implemented using the k-means algorithm due to its efficiency
-and ease of use.
+The aim of the project is to show that the data science in C++ is easy and fast and show
+how it works with simple algorithms and common example of 2d matrix of points. realization of 
+DBSCAN and K-means were used in the project to cluster the points.
 ## Dataset:
 The dataset provided for this project from kaggle is 2D clustering data, containing
 two-dimensional clustering data and right clusterization. You will need to delete
-column with right classes and make clussterization, after that you can compare
-with right clussterization. Dataset includes the following fields:
+column with right classes and make clusterization, after that you can compare
+with right clusterization. Dataset includes the following fields:
 1) x : Float
 2) y : Float
 3) color : integer
-This dataset is ideal for testing and implementing clustering algorithms, as it
-allows for easy visualization and interpretation of results.
+This dataset is ideal for showing the magic of clusterization algorithms for beginners because of its simplicity and demistartivness
 ## Features to Implement:
 ### 1. Clustering Algorithms:
 • Input: Preprocessed matrix of two-dimensional data points.
@@ -30,27 +27,18 @@ write clustered data to files for easy storage and retrieval.
 examples to guide users in utilizing the application and library
 functionalities effectively.
 ## Additional Features:
-### 1. Interpretation Algorithm
-• Develop an algorithm to interpret and visualize the clustered data
-effectively. For example in scatter plot.
-### 2. Algorithm Flexibility:
-• Besides k-means, provide options for implementing other clustering
-algorithms such as hierarchical clustering or DBSCAN for comparative
-analysis.
-### 3. Visualization Tools:
-• Integrate visualization tools to allow users to visualize the clustering
-results directly within the console application.
-### 4. Normalization function:
-• Include function to normalize data after reading to impprove accuracy of 
-algorithms especially with large datasets.
-### 5. Parameter Tuning:
-• Include functionality for automatic or manual tuning of clustering
-parameters such as the number of clusters to optimize clustering
-performance.
-### 6. Exportable Results:
-• Allow users to export clustered data and visualizations in various formats
-(e.g., CSV, image files) for further analysis or presentation purposes.
+### 1. Algorithm Flexibility:
+• Provide different algorithms to compare the results of work and check the correctness and difference in work of two algorithms such as K-Means and DBSCAN.
+### 2. Visualization Tool:
+• Function which will interpret the results of the clusterization algorithm in a scatter plot with dots of different colors for each cluster.
+### 3. Normalization function:
+• Funcion which will normalize data for improving correctness of algorithms.
+### 4. Parameter Tuning:
+• Function which will find the most suitable hyperparameters combination with the most accurate results.
+### 5. Exportable Results:
+• Function for exporting the results in csv file.
 
 By incorporating these additional features, the console application will not only
 provide basic clustering functionalities but also offer flexibility, performance, and
 user-friendliness, making it a valuable tool for data analysis tasks.
+
