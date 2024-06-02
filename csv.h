@@ -16,5 +16,6 @@ struct Point {
 };
 
 std::vector<Point> readCSV(const std::string& filename);
+void normalizePoints(std::vector<Point>& points);
 
 #endif
