@@ -17,6 +17,6 @@ void dbscan(std::vector<Point>& points, double eps, int minPts);
 
 std::pair<double, int> autoTuneDBSCAN(std::vector<Point>& points);
 
-double silhouetteScore(const std::vector<Point>& points, const std::vector<int>& labels, int clusterCount);
+double silhouetteScore(const std::vector<Point>& points, int clusterCount);
 
 #endif
